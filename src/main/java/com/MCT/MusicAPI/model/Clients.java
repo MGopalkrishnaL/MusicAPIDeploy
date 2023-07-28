@@ -1,6 +1,5 @@
 package com.MCT.MusicAPI.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,8 +23,12 @@ public class Clients {
     private String email;
     private String phoneNumber;
     private String role;
-    @OneToMany
-    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "PlayListOfClients",
+            joinColumns = @JoinColumn(name = "userName"),
+            inverseJoinColumns = @JoinColumn(name = "musicId")
+    )
     private List<Music> musicList;
 
 }

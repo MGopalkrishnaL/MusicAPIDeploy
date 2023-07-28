@@ -1,6 +1,5 @@
 package com.MCT.MusicAPI.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +13,6 @@ import lombok.NoArgsConstructor;
 public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "music_id")
     private Integer musicId;
 
     @Column(name = "name")
@@ -28,8 +26,4 @@ public class Music {
 
     @Column(name = "genre")
     private String genre;
-    @ManyToOne
-    @JsonIgnore
-    private Clients clients;
-
 }

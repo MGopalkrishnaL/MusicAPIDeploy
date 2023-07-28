@@ -18,15 +18,15 @@ public class ClientService {
 
     public ResponseEntity<String> saveClient(ClientDTO client) {
         Clients clients = new Clients();
-        if (clientRepository.existsByUserName(client.getName())) {
+        if (clientRepository.existsByUserName(client.getUserName())) {
             return new ResponseEntity<>("user Name Has already exist", HttpStatus.BAD_REQUEST);
         }
         clients.setEmail(client.getEmail());
         clients.setName(client.getName());
         clients.setPhoneNumber(client.getPhoneNumber());
-        clients.setPassword(clients.getPassword());
+        clients.setPassword(client.getPassword());
         clients.setRole("User");
-        clients.setUserName(clients.getUserName());
+        clients.setUserName(client.getUserName());
         clientRepository.save(clients);
         return new ResponseEntity<>("Client has been saved the successfully",HttpStatus.CREATED);
     }
@@ -53,11 +53,10 @@ public class ClientService {
         clients.setEmail(client.getEmail());
         clients.setName(client.getName());
         clients.setPhoneNumber(client.getPhoneNumber());
-        clients.setPassword(clients.getPassword());
+        clients.setPassword(client.getPassword());
         clients.setRole("Admin");
-        clients.setUserName(clients.getUserName());
+        clients.setUserName(client.getUserName());
         clientRepository.save(clients);
         return new ResponseEntity<>("Client has been saved the successfully with Admin previlages",HttpStatus.CREATED);
-
     }
 }
