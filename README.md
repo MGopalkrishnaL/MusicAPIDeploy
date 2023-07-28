@@ -11,7 +11,8 @@
 * Put specific end_points besides the port accordingly to run the project to access and modify the data
 or
 *Click on the link which is integrated with swagger and use it
-```http://13.48.178.234:8080/swagger-ui/index.html#/
+```
+http://13.48.178.234:8080/swagger-ui/index.html#/
 ```
 # Dependencies
 ## Validation
