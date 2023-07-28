@@ -12,7 +12,7 @@
 or
 *Click on the link which is integrated with swagger and use it
 ```
-http://13.48.178.234:8080/swagger-ui/index.html#/
+http://13.51.174.86:8080/swagger-ui/index.html#/
 ```
 # Dependencies
 ## Validation
